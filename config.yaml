@@ -32,7 +32,8 @@ params:
   description: "Personal website"
   disqusURL: ""
   fullURL: ""
-  dateFormat: "02 January 2006"
+
+  author: "Eduardo Jr"
 
   # options for highlight.js (version, additional languages, and theme)
   highlightjsVersion: "9.9.0"
