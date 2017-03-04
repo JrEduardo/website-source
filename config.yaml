@@ -17,16 +17,18 @@ permalinks:
 
 menu:
   main:
-    - name: "About"
-      url: "/about/"
-      weight: 0
     - name: "Blog"
       url: "/post/"
       weight: 1
-    - name: "Github"
-      pre: "github"
-      url: ""
+    - name: "Portfólio"
+      url: "/portfolio/"
       weight: 2
+    - name: "Projetos"
+      url: "/projetos/"
+      weight: 2
+    - name: "Sobre mim"
+      url: "/about/"
+      weight: 3
 
 params:
   description: "Personal website"
