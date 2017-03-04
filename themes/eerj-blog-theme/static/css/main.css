@@ -21,21 +21,45 @@ body {
   -moz-font-feature-settings: "liga" on;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--dark);
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark);
 }
 
 a {
   outline: none;
 }
 
-code {
-  background-color: rgba(0, 0, 0, 0.02);
+pre {
+    display: block;
+    font-size: 15px;
+    line-height: 20px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    border-radius: 0px;
+}
+hljs {
+    background: #f5f5f5;
+}
+hljs code {
+    color:#657b83
+}
+.hljs-comment, .hljs-quote {
+    color: #658696;
+    font-style: italic;
+}
+.hljs-keyword, .hljs-selector-tag, .hljs-subst {
+    color: #0d2444;
+    font-weight: bold;
+}
+.hljs-string, .hljs-doctag {
+    color: #1198dd;
+}
+
+p.caption {
+    text-align: center;
+    color: #9a9a9a;
+    font-size: 0.9em;
 }
 
 code .MathJax {
@@ -98,6 +122,7 @@ code .MathJax {
   text-decoration: none;
   color: var(--medi);
   font-size: 90%;
+  font-family: initial;
 }
 
 .nav-links a:hover {
@@ -328,7 +353,7 @@ code .MathJax {
   }
 
   .footer-links {
-    font-size: inherit;
+    font-size: large;
   }
 }
 
