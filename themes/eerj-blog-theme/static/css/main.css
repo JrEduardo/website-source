@@ -29,6 +29,36 @@ a {
   outline: none;
 }
 
+.custom {
+    width: 160px !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: var(--medi);
+    border-color: #2e6da4;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 0.9em;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
 pre {
     display: block;
     font-size: 15px;
@@ -172,6 +202,35 @@ code .MathJax {
   color: var(--medi);
   background: transparent;
   transition: background 150ms ease;
+}
+
+.article-content a.custom {
+    width: 160px !important;
+}
+.article-content a.btn-primary {
+    color: #fff;
+    background-color: var(--medi);
+    border-color: #2e6da4;
+}
+.article-content a.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 0.9em;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
 .article-content a:hover,
