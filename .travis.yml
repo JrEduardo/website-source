@@ -7,5 +7,5 @@ script:
   - Rscript -e "blogdown::build_site()"
   - ./_deploy.sh
 
-before_script:
+after_success:
   - chmod +x ./_deploy.sh
