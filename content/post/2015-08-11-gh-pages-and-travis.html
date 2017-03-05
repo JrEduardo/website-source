@@ -1,0 +1,121 @@
+---
+title: Commits automáticos no GitHub com Travis CI!
+slug: gh-pages-and-travis
+date: 2015-08-11
+tags: [git, github, gh-pages, travis-ci]
+---
+
+<!-- BLOGDOWN-HEAD -->
+<!-- /BLOGDOWN-HEAD -->
+
+<!-- BLOGDOWN-BODY-BEFORE -->
+<!-- /BLOGDOWN-BODY-BEFORE -->
+<p>O <a href="https://github.com/">GitHub</a> é um serviço web para hospedagem, gestão e compartilhamento de repositórios <a href="https://git-scm.com/">Git</a> que oferece diversos recursos, entre eles as <a href="https://pages.github.com/">GitHub Pages</a> e intregração contínua, com <a href="https://travis-ci.org/">Travis CI</a>, por exemplo. As GitHub Pages são páginas web gerenciadas e renderizadas pelo próprio GitHub para que seus usuários possam exibir seus projetos de uma forma simples. Já a integração contínua com Travis realiza, essencialmente, teste de código. Em pacotes R, por exemplo, podemos ter o status do pacote que mostra se um <em>push</em> para o repositório ainda o deixa sem erros, mas também podemos fazer mais com esse serviço, como veremos a seguir.</p>
+<p>Para criar uma GitHub Page é só criar um ramo com nome <code>gh-pages</code> em seu projeto e adicionar a este arquivos com extensão <code>.html</code>. Além dessa forma simples de criação, pode-se escolher diversos templates <a href="https://jekyllrb.com/">Jekyll</a> (veja <a href="http://jekyllthemes.org/">link</a>), pois as páginas são geradas pelo Jekyll. Neste post será abordada apenas a primeira opção. Já para utilizar o Travis CI, basta conectar-se ao serviço, pode ser através de seu conta no GitHub, habilitar a integração contínua ao seu repositório e incluir um arquivo <code>.travis.yml</code> com as instruções que o servidor Travis deve seguir.</p>
+<p>Comumente nós, usuários de R, utilizamos o pacote <a href="http://rmarkdown.rstudio.com/"><code>rmarkdown</code></a> para escrevermos nossos arquivos em MarkDown mesclando com códigos R e compilando para o formato <code>.hmtl</code>. Pensando em uma rotina para criação das GitHub Pages, teríamos nosso ramo <code>master</code> com o projeto e um ramo <code>gh-pages</code> onde deixamos todos os <code>.html</code> e demais arquivos gerados da compilação. Todavia esse trâmite de migrar entre ramos, compilar os arquivos, commitar os arquivos gerados pela compilação, etc. é demasiadamente entediante e cansativo. Então porque não automatizar?</p>
+<p>Para automatizar esse processo, de inclusão de arquivos gerados da compilação no ramo <code>gh-pages</code>, vamos utilizar o serviço Travis CI conforme os passos a seguir:</p>
+<div class="figure">
+<img src="../../../../post/images/github2.png" />
+
+</div>
+<p><strong>Habilite a integração contínua no seu repositório</strong></p>
+<p>No site do <a href="https://travis-ci.org/">Travis CI</a>, serão listados todos os repositórios do GitHub dos quais se tem acesso. Habilite a integração contínua, conforme figura abaixo.</p>
+<div class="figure">
+<img src="../../../../post/images/travis1.png" />
+
+</div>
+<p><strong>Gere uma chave de acesso ao seu repositório</strong></p>
+<p>No GitHub há as permissões de acesso, isso faz com que pessoas não autorizadas não possam modificar um repositório sem permissão. Como o servidor Travis é análogo à um usuário sem acesso, devemos dar-lhe permissão para escrita no repositório. Isso é feito na página de <em>Configurações -&gt; Personal access tokens</em>.</p>
+<div class="figure">
+<img src="../../../../post/images/github1.png" />
+
+</div>
+<p>Ainda nessa página, ao criar uma nova chave de acesso, você escolherá o escopo que essa chave compreende. Para incluir os arquivos em um ramo apenas a primeira opção é necessária (na verdade apenas o terceiro item da primeira opção já será suficiente).</p>
+<div class="figure">
+<img src="../../../../post/images/github2.png" />
+
+</div>
+<p>Concedida as permissões à chave, uma página que contém o código identificador MD5 dessa chave é gerado. Copie esse código, note o aviso, pois ele é verdadeiro, você não conseguirá visualizar novamente o código pelo GitHub.</p>
+<div class="figure">
+<img src="../../../../post/images/github3.png" />
+
+</div>
+<p><strong>Crie uma variável de ambiente no Travis</strong></p>
+<p>O servidor Travis, ao executar a verificação do seu repositório, têm várias variáveis que são acessadas durante a verificação. Nesta etapa fazemos com que o Travis conheça a chave de acesso que geramos na etapa anterior.</p>
+<div class="figure">
+<img src="../../../../post/images/travis2.png" />
+
+</div>
+<p><strong>Adicione os arquivos para compilação dos documentos</strong></p>
+<p>Agora já foram realizadas todas as etapas para que o Travis tenha acesso ao nosso repositório. Todavia ainda lhe falta a instrução sobre o que fazer neste repositório. Tome a estrutura de um repositório que já tenha um ramo <code>gh-pages</code> e um ramo <code>master</code> conforme abaixo:</p>
+<pre class="bash"><code>.
+├── page-files
+│   ├── cap01.Rmd
+│   ├── cap02.Rmd
+│   ├── cap03.Rmd
+│   └── index.Rmd
+└── README.md</code></pre>
+<p>Pois bem, listando os afazeres do Travis temos:</p>
+<ol style="list-style-type: decimal">
+<li>Compilar os arquivos <code>.Rmd</code>.<br />
+A sugestão aqui é deixar os arquivos que fazem parte da sua página web em um diretório específico. Para facilitar os procedimentos posteriores. Para compilar esses arquivos sugere-se a criação de um script <code>.R</code>, por exemplo <code>_render.R</code> contendo o código:</li>
+</ol>
+<pre class="r"><code>## Compila os Rmd
+
+dirname &lt;- &quot;./page-files&quot;
+files &lt;- grep(&quot;.Rmd$&quot;, dir(dirname), value = TRUE)
+sapply(paste0(dirname, &quot;/&quot;, files), rmarkdown::render)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Commitar as mudanças no ramo <code>gh-pages</code>.<br />
+Como o serviço Travis CI faz a verificação com servidores Linux, um script <code>bash</code> é ideal para automatizar a rotina de commits. Em um arquivo <code>_deploy.sh</code> faça:</li>
+</ol>
+<pre class="bash"><code>#!/bin/sh
+
+git config --global user.email &quot;edujrrib@gmail.com&quot;
+git config --global user.name &quot;Travis boot&quot;
+
+git clone -b gh-pages https://${GIT_KEY}@github.com/${TRAVIS_REPO_SLUG}.git dir-tmp
+cd dir-tmp
+cp -r ../page-files/* ./
+git add --all *
+git commit -m &quot;Atualização automática (travis build ${TRAVIS_BUILD_NUMBER})&quot; || true
+git push origin gh-pages</code></pre>
+<p>Note que as porções do código com a sintaxe <code>${variavel}</code> são as variáveis de ambiente do Travis CI. A <code>GIT_KEY</code> refere-se ao código de acesso criado nas etapas anteriores, as demais variáveis são as criadas automaticamente pelo Travis.</p>
+<p><strong>Adicionar as instruções para o Travis</strong></p>
+<p>A verificação do Travis é realizada a partir das instruções colocadas em um arquivo <code>.travis.yml</code>. Esse arquivo permite várias linguagens e várias definições, mais sobre como instruir o Travis a partir deste arquivo pode ser visto <a href="https://docs.travis-ci.com/user/getting-started/">aqui</a>. No nosso caso o seguindo conteúdo será colocado nesse arquivo.</p>
+<pre class="yaml"><code>language: r
+
+before_script:
+  - chmod +x ./_deploy.sh
+
+script:
+  - Rscript -e &quot;source(&#39;_render.R&#39;)&quot;
+  - ./_deploy.sh</code></pre>
+<p>Em ordem esse arquivo diz:</p>
+<ol style="list-style-type: decimal">
+<li>A linguagem utilizada é R</li>
+<li>Antes do início da verificação é permita a execução do script bash</li>
+<li>O script de verificação:
+<ul>
+<li>Execute o <code>_render.R</code> (gerando todos os arquivos para a página web).</li>
+<li>Execute o <code>_deploy.sh</code> (clonando o repositório, adicionando os arquivos gerados e commitando-os).</li>
+</ul></li>
+</ol>
+<p>Outro detalhe é que definindo a linguagem R, o Travis procurará um arquivo <code>DESCRIPTION</code> para que se baixe as dependências necessárias para verificação, isso é feito pois a linguagem R no Travis é usada majoritariamente para verificação de pacotes R. Portanto no DESCRIPTION fazemos:</p>
+<pre><code>Package: qualquer_nome
+Title: Qualquer Titulo
+Version: 0.0.1
+Imports: rmarkdown</code></pre>
+<p>Agora já podemos ficar despreocupados com a geração dos arquivos que farão parte da nossa página web, pois o Travis fará todo o trabalho sujo. Abaixo exibi-se a página do Travis após o build do repositório <a href="https://github.com/JrEduardo/book-test">book-test</a>, que seguiu as especificações deste post.</p>
+<div class="figure">
+<img src="../../../../post/images/travis3.png" />
+
+</div>
+<p>E abaixo temos a página inicial do ramo <code>gh-pages</code> desse repositório. Note que a mensagem de commit é a qual definimos no arquivo <code>_deploy.R</code>.</p>
+<div class="figure">
+<img src="../../../../post/images/github4.png" />
+
+</div>
+<p>A página web gerada pelo GitHub fica hospedada no endereço <code>https://usuario.github.io/repositorio</code>. A página criada para esse tutorial pode ser acessada em <a href="https://jreduardo.github.io/book-test/" class="uri">https://jreduardo.github.io/book-test/</a> (esse repositório sofrerá alterações, pois o usarei para outros testes).</p>
+<p>Ressalto que o material deste post foi motivado a partir da minha curiosidade sobre o funcionamento do pacote <a href="https://bookdown.org/"><code>bookdown</code></a> e muito do que foi descrito aqui pode ser explorado também nos repositório Git do pacote (<a href="http://github.com/rstudio/bookdown/">rstudio/bookdown</a>) e da demostração do pacote (<a href="http://github.com/rstudio/bookdown-demo/">rstudio/bookdown-demo</a>).</p>
+<!--------------------------------------------- -->
