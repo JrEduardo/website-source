@@ -3,7 +3,7 @@ pandoc_version: 1.17.2
 cache: packages
 
 script:
-  - Rscript -e "blogdown::install_hugo()"
+  - Rscript -e "blogdown::install_hugo(version = \"0.17\")"
   - Rscript -e "blogdown::build_site()"
   - ./_deploy.sh
 
