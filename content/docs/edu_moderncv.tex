@@ -1,0 +1,239 @@
+\documentclass[11pt, a4paper]{moderncv}
+
+%%======================================================================
+%% See the original template at
+%% http://mirrors.ctan.org/macros/latex/contrib/moderncv/examples/template.tex
+%% if you want more options for configuration
+%%======================================================================
+
+%%----------------------------------------------------------------------
+%% Preamble
+%%----------------------------------------------------------------------
+
+%% define the modern cv
+% Opts for colors: blue, green, grey, orange, red
+% Opts for class: casual, classic, oldstyle, banking, fancy
+
+\moderncvtheme[grey, roman]{casual}
+
+%% Character encoding
+\usepackage[brazil]{babel} %% Idioma
+\usepackage[utf8x]{inputenc} %% Codificação de caracteres
+
+%% Fonts
+%\usepackage{textcomp}
+%\usepackage[protrusion=true,expansion=true]{microtype}
+%% Bitstream Charter with mathdesign
+%\usepackage[charter]{mathdesign} % serif: Bitstream Charter
+%\usepackage[scaled]{beramono} % truetype: Bistream Vera Sans Mono
+%\usepackage[scaled]{helvet} % sans-serif: Helvetica
+
+% \usepackage{palatino}
+% \usepackage{eulervm}
+\usepackage{mathpazo}
+
+%% Adjust the page margins
+\usepackage[scale=0.8]{geometry}
+
+%% Personal data
+\firstname{\huge \textbf{Eduardo}}
+\familyname{\huge \textbf{Elias Ribeiro Jr}}
+\title{\textit{Curriculum Vit\ae}}
+\address{Endereço Residencial}{V. Independência, Piracicaba - SP}
+%\mobile{+55 41 8711-9034}
+%\phone{+55 41 3055-2985}
+%\fax{fax (optional)}
+\email{edujrrib@gmail.com}
+%\homepage{startrek.com/database\_article/spock}
+\github{github.com/JrEduardo}
+\gitlab{gitlab.c3sl.ufpr.br/eerj12}
+%\linkedin{linkedin.com/in/spock}
+\lattes{lattes.cnpq.br/9517198687029938}
+%\extrainfo{additional information (optional)}
+\photo[100pt]{foto}                         % '64pt' is the height
+%\quote{Some quote (optional)}
+
+% to show numerical labels in the bibliography; only useful if you make
+% citations in your resume
+\makeatletter
+\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+\makeatother
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+
+% uncomment to suppress automatic page numbering for CVs longer than one page
+%\nopagenumbers{}
+
+%%----------------------------------------------------------------------
+%% Content
+%%----------------------------------------------------------------------
+
+%% Again, see original template for more options!
+
+\begin{document}
+\maketitle
+
+Pesquisador com 22 anos de idade, bacharel em Estatística pela UFPR e
+mestrando em Estatística e Experimentação Agronômica pela Escola
+Superior de Agricultura ``Luiz de Queiroz`` na USP. Tem como linhas de
+pesquisa modelos de regressão para dados de contagem, aprendizado de
+máquina em análise de texto e imagem, ciência reproduzível e interfaces
+interativas para ensino de Estatística. É usuário ativo de R, Git e
+Linux e incentivador do uso de softwares livres.
+
+%-----------------------------------------------------------------------
+\section{Formação acadêmica}
+\cventry{2017--atual}{Estatística e Experimentação
+  Agronômica}{Universidade de São Paulo (ESALQ-USP)}{Mestrado}{}{}
+\cvline{Orientador}{Clarice Garcia Borges Demétrio}
+
+\cventry{2012--2016}{Estatística}{Universidade Federal do Paraná
+  (UFPR)}{Bachalerado}{}{Extensões e aplicações dos modelos de regressão
+  \textit{COM-Poisson} para análise de dados de contagem.}
+\cvline{Orientador}{Walmes Marques Zeviani}
+
+\section{Formação complementar}
+
+\subsection{Estágios}
+
+\cventry{2013--2016}{Programa de Educação Tutorial de Estatística -
+  UFPR}{}{}{}{Coordenar/participar de diversos projetos que promovem a
+  formação acadêmica plena (científica e pessoalmente) voltada para a
+  tríade ensino, pesquisa e extensão objetivando a melhoria na qualidade
+  da graduação.}
+
+\cventry{2013--2014}{SENAI PR - Serviço Nacional de Aprendizagem
+  Industrial}{}{}{}{Elaborar relatórios e planilhas de controle para
+  distribuição de recursos referente ao PRONATEC (Programa Nacional de
+  Acesso ao Ensino Técnico e Emprego) a nível regional.}
+
+\cventry{2012}{Programa de Iniciação à Docência - UFPR}{}{}{}{Prestar
+  monitoria aos alunos dos cursos de CE002 – Estatística I e CE003 –
+  Estatística II desenvolvendo habilidades didáticas para o ensino.}
+
+
+\subsection{Cursos realizados}
+
+\cventry{2016}{Universidade Fereal de Minas Gerais}{45h}{Aprendizado de
+  Máquina}{Marcos Oliveira Prates}{}
+
+\cventry{2015}{LEG - Laboratório de Estatística e
+  Geoinformação}{6h}{INLA - Integrated nested laplace
+  approximation}{Elias Krainsk}{}
+
+\cventry{2015}{XI Semana da Estatística UEM}{6h}{Inferência indutiva:
+  Uma visão genuinamente bayesiana}{Carlos Alberto de Bragança
+  Pereira}{}
+
+\cventry{2015}{60ª Rbras e 16º Seagro}{2h}{RStudio: ferramentas e
+  funcionalidades}{Daniel Ikenaga e outros}{}
+
+\cventry{2015}{60ª Rbras e 16º Seagro}{2h}{Meu primeiro pacote no
+  R}{Mariana R. Urbano e Rodrigo R. Pescim}{}
+
+\cventry{2015}{60ª Rbras e 16º Seagro}{2h}{Explorando a flexibilidade do
+  modelo linear misto: aplicações no mapeamento de genes}{Nubia Esteban
+  Duarte e outros}{}
+
+\cventry{2015}{60ª Rbras e 16º Seagro}{2h}{Modelos lineares mistos na
+  análise de dados sensoriais e de estudos com consumidores utilizando o
+  pacote \texttt{sensmixed} no R}{Isabel de Souza Amorim e outros}{}
+
+\section{Experiência}
+
+\subsection{Experiência profissional}
+
+\cventry{2011--2013}{BRF - Brasil Foods S.A}{}{}{}{Responsável pelo
+  controle e monitoramento de indicadores de desempenho logístico da
+  empresa e auxilio na elaboração de planos de ação para eventuais
+  desvios nos resultados previstos.  Cargos na empresa:
+  \begin{itemize}
+  \item Menor aprendiz
+  \item Assistente administrativo
+  \end{itemize}
+}
+
+\subsection{Cursos ministrados}
+\cventry{2016}{61ª RBras}{4h}{\textit{Modelos de Regressão para Dados de
+    Contagem com R}}{
+  \href{https://github.com/leg-ufpr/MRDCr}{github.com/leg-ufpr/MRDCr}}{}
+
+\cventry{2015}{XII Semana da Estatística UEM}{4h}{\textit{Explorando
+    interfaces gráficas interativas com o R (2ª edição)}}{
+  \href{https://github.com/leg-ufpr/iguir2}{github.com/leg-ufpr/iguir2}}{}
+
+\cventry{2015}{60ª RBras e 16º SEAGRO}{2h}{\textit{Explorando interfaces
+    gráficas interativas com o
+    R}}{\href{http://www.leg.ufpr.br/iguiR}{www.leg.ufpr.br/iguiR}}{}
+
+\cventry{2015}{Universidade Federal do Paraná}{2h}{\textit{Oficina de
+    \LaTeX{} - Facite sua vida acadêmica}}{
+  \href{www.pet.est.ufpr.br/latex}{www.pet.est.ufpr.br/latex}}{}
+
+\section{Interesses}
+
+\cvline{Estatística}{Modelos Lineares Generalizados e Extensões}
+\cvline{}{Métodos Computacionais em Estatística}
+\cvline{}{Educação Estatística}
+
+\cvline{Computação}{Gerenciamento de banco de dados}
+\cvline{}{Programação em Python}
+\cvline{}{Shell Script}
+
+\section{Habilidades Computacionais}
+\cvcomputer{Sistemas Operacionais}{Linux, Windows}{}{}
+\cvcomputer{Linguagens de Programação}{\textsf{R}, \LaTeX{}, Python}{}{}
+\cvcomputer{Ferramentas}{git, Shell, Markdown, CSS, HTML}{}{}
+
+\section{Idiomas}
+\cvlanguage{Inglês}{Básico}{}
+
+%\section{Grants}
+%\cventry{2260--2269}{Starfleet}{}{}{}{Money for the Enterprise}
+
+\section{Awards}
+\cventry{2016}{CONRE-3 - Conselho Regional de Estatística}{}{}{}{Melhor
+  Aluno do Curso de Estatística da UFPR}
+
+\section{Publicações}
+
+\subsection{Apresentação de trabalho em eventos}
+
+\cvline{5}{Ribeiro Jr, E. E. (2016) Introdução a Análise de Dados de
+  Contagem com R. \textbf{MEETUPR - R Users Group}.}
+
+\cvline{4}{Ribeiro Jr, E. E. (2015) Shiny: aplicações web com
+  R. \textbf{MEETUPR - R Users Group}.}
+
+\cvline{3}{Ribeiro Jr, E. E. (2015) Distribuição COM-Poisson na
+  Modelagem de Dados de Contagem com Sub e Superdispersão. \textbf{ 7ª
+    SIEPE - Semana Integrada de Ensino, Pesquisa e Extensão}.}
+
+\cvline{2}{Ribeiro Jr, E. E. (2014) Gráficos Interativos com o software
+  R para Ensino-Aprendizagem de Estatística Básica e Inferência.
+  \textbf{6ª SIEPE - Semana Integrada de Ensino, Pesquisa e Extensão}.}
+
+\cvline{1}{Ribeiro Jr, E. E. (2014) Ferramenta Interativa para
+  Ensino-Aprendizagem de Estatística Básica. \textbf{XI Semana da
+    Estatística UEM}.}
+
+
+%\subsection{Peer-reviewed publications}
+%\cvline{1}{Xtmprszntwlfd, S. 2278. Title here. \textbf{Science}, 12(1):
+%  234--678.}
+
+%\subsection{Books}
+%\cvline{1}{Xtmprszntwlfd, S. 2280. \textbf{How to pilot
+%    Enterprise}. Starfleet Press, 1982 p.}
+
+%\subsection{Reports}
+%\cvline{1}{Xtmprszntwlfd, S. \& Kirk, J. T.  \textbf{Secret activities
+%    of the Enterprise}. Report.}
+
+\end{document}
+
+% Info about Spock found at
+% http://www.startrek.com/database_article/spock
+% http://en.wikipedia.org/wiki/Spock
