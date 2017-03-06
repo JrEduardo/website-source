@@ -193,7 +193,7 @@
 %-------------------------------------------------------------------------------
 %                style commands definitions
 %-------------------------------------------------------------------------------
-% symbols used 
+% symbols used
 \providecommand*{\listitemsymbol}{\Neutral}%{{\fontencoding{U}\fontfamily{ding}\selectfont\tiny\symbol{'102}}}
 \providecommand*{\addresssymbol}{}
 \providecommand*{\mobilesymbol}{\Mobilefone}
@@ -201,10 +201,10 @@
 \providecommand*{\faxsymbol}{\FAX}
 \providecommand*{\emailsymbol}{\Letter}
 \providecommand*{\homepagesymbol}{{\Large\ComputerMouse}}
-\providecommand*{\githubsymbol}{\raisebox{-1pt}{\includegraphics[height=9pt]{github}}}
-\providecommand*{\gitlabsymbol}{\raisebox{-1pt}{\includegraphics[height=9pt]{gitlab}}}
-\providecommand*{\linkedinsymbol}{\raisebox{-1pt}{\includegraphics[height=9pt]{linkedin}}}
-\providecommand*{\cnpqsymbol}{\raisebox{-1pt}{\includegraphics[height=9pt]{cnpq}}}
+\providecommand*{\githubsymbol}{\raisebox{-1pt}{\includegraphics[height=9pt]{images/github}}}
+\providecommand*{\gitlabsymbol}{\raisebox{-1pt}{\includegraphics[height=9pt]{images/gitlab}}}
+\providecommand*{\linkedinsymbol}{\raisebox{-1pt}{\includegraphics[height=9pt]{images/linkedin}}}
+\providecommand*{\cnpqsymbol}{\raisebox{-1pt}{\includegraphics[height=9pt]{images/cnpq}}}
 
 % colors
 \definecolor{firstnamecolor}{rgb}{0,0,0}
