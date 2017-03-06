@@ -261,6 +261,27 @@ code .MathJax {
   background: #e5e5e5;
 }
 
+.article-content table {
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom: 1px solid var(--medi);
+    border-top: 1px solid var(--medi);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.article-content tr.header {
+    background-color: #e5e5e5;
+}
+
+.article-content tr.even {
+    background-color: #f0f0f0;
+}
+
+.article-content td {
+    padding: 4px 10px;
+}
+
 .highlight {
   border-radius: 3px;
   position: relative;
