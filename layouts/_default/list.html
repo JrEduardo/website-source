@@ -27,6 +27,8 @@
   </div>
   {{ end }}
   {{if and .Content (not .IsHome) }}
+  <br>
+  <br>
   {{ partial "disqus.html" .}}
   {{ end }}
 
