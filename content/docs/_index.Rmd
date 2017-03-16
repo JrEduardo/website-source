@@ -1,0 +1,22 @@
+## ./docs ##
+
+```{r, include=FALSE}
+
+files <- grep(pattern = "*.pdf", x = dir(), value = TRUE)
+finfo <- file.info(files)
+finfo[, c("size", "mtime")]
+
+url <- "[%s](./docs/%s)"
+fls <- rownames(finfo)
+x <- sprintf(url, fls, fls)
+tb <- data.frame(Arquivo = x,
+                 Tamanho = paste(finfo$size/10^3, "bytes"),
+                 Modificado = finfo$mtime)
+
+```
+
+Lista de documentos mantidos públicos no website.
+
+```{r, echo=FALSE}
+knitr::kable(tb, align = "lcc")
+```
