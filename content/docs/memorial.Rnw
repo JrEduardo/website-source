@@ -1,0 +1,150 @@
+% Document class and options
+\documentclass[10pt, a5paper]{memoir}
+\usepackage{kantlipsum}
+
+% Mathematics environments
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amstext}
+
+% Idioma e hifienação
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Customize itemize's enviroments
+\usepackage{enumitem}
+
+% Chapter style (view too bianchi, chappell, wilsondob, ell)
+\chapterstyle{thatcher}
+
+% Footers and headers styles
+\makepagestyle{plain}
+\makeevenhead{plain}{}{}{}
+\makeoddhead{plain}{}{}{}
+\makeevenhead{headings}{\thepage}{\scriptsize\leftmark}{}
+\makeoddhead{headings}{}{\scriptsize\rightmark}{\thepage}
+\makeheadrule{headings}{\textwidth}{\normalrulethickness}
+
+% Fontes
+\usepackage{mathpazo}
+\usepackage[scaled=0.85]{beramono}
+
+% % Hyperreferences (external and internal links)
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,     % false: boxed links; true: colored links
+  linkcolor=blue,      % color of internal links
+  citecolor=blue,      % color of links to bibliography
+  urlcolor=blue
+}
+
+% Setting maketitle
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \vskip0.2em\par\fontsize{15}{15}\selectfont#1}%
+}
+\pretitle{\fontsize{22}{22}\selectfont}
+\posttitle{\par}
+\preauthor{\vskip2.5em\selectfont}
+\postauthor{\par\vskip0.2em}
+\predate{}
+\date{}
+\postdate{\vskip1.5em}
+
+% Metadados
+\title{Memorial Descritivo}
+\subtitle{Uma crônica analítica e crítica
+  da minha vida acadêmica}
+\author{Eduardo Elias Ribeiro Junior}
+\date{Rascunho atualizado em \today}
+
+<<setup, include=FALSE, cache=FALSE>>=
+
+##-------------------------------------------
+## Configure trellis graphical style
+library(lattice)
+library(latticeExtra)
+
+## http://www.magesblog.com/2013/04/how-to-change-alpha-value-of-colours-in.html
+add.alpha <- function(col, alpha = 1){
+    apply(sapply(col, col2rgb)/255, 2,
+          function(x) rgb(x[1], x[2], x[3], alpha = alpha))
+}
+
+## Define Colors
+mycol <- c(1, "#377EB8", "#E41A1C", "#4DAF4A",
+           "#ff00ff", "#FF7F00", "#984EA3", "#FFFF33", "#808080")
+myreg <- colorRampPalette(c(mycol[3],  "gray90", mycol[2]))(100)
+
+## Trellis graphical style.
+ps <- list(
+    superpose.symbol = list(
+        col = mycol, pch = 1,
+        fill = add.alpha(mycol, alpha = 0.4)),
+    box.rectangle = list(col = 1, fill = c("gray70")),
+    box.umbrella = list(col = 1, lty = 1),
+    box.dot = list(pch = "|"),
+    dot.symbol = list(col = 1, pch = 19),
+    dot.line = list(col = "gray50", lty = 3),
+    plot.symbol = list(col = 1),
+    plot.line = list(col = 1),
+    plot.polygon = list(col = "gray95"),
+    superpose.line = list(col = mycol, lty = 1),
+    superpose.polygon = list(col = mycol),
+    strip.background = list(col = c("gray90", "gray70")),
+    regions = list(col = myreg)
+    )
+
+trellis.par.set(ps)
+
+@
+
+%=======================================================================
+% Init document
+\begin{document}
+
+\begin{titlingpage}
+\begin{minipage}[t]{8cm}
+  \maketitle
+  \begin{description}[leftmargin=!, labelwidth=1.3cm]
+    \small
+    \setlength\itemsep{-0.2em}
+    \item[E-mail:]
+      \href{mailto:edujrrib@gmail.com}{\nolinkurl{edujrrib@gmail.com}}
+    \item[Website:]
+      \url{http://jreduardo.github.io/}
+    \item[GitHub:]
+      \url{https://github.com/JrEduardo}
+    \item[Lattes:]
+      \url{http://lattes.cnpq.br/9517198687029938}
+    \end{description}
+\end{minipage}
+\end{titlingpage}
+
+%-------------------------------------------
+
+\tableofcontents*
+\clearpage
+% \listoffigures*
+% \clearpage
+% \listoftables*
+% \clearpage
+
+%-------------------------------------------
+
+\chapter*{Prefácio}
+\addcontentsline{toc}{chapter}{Prefácio}
+\kant[1]
+
+\chapter{Bem-vindo a escola}
+\kant[1-5]
+
+\chapter{O ensino superior}
+\kant[1-10]
+
+\chapter{Epílogo}
+\kant[1-2]
+
+\end{document}
