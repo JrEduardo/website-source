@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Eduardo Elias Ribeiro Junior (ESALQ-USP) Seminários Preparação Pedagógica" />
+  <title>Gamificação no Ensino</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="index_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="index_files/reveal.js-3.3.0.1/css/theme/serif.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="reveal-style.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <link href="index_files/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Gamificação no Ensino</h1>
+  <h1 class="subtitle">entenda, use e engaje seus alunos</h1>
+    <h2 class="author"><hr /></h2>
+    <h2 class="author"><p>Eduardo Elias Ribeiro Junior (ESALQ-USP)<br />
+Seminários Preparação Pedagógica</p></h2>
+    <h3 class="date">26 de junho de 2017</h3>
+</section>
+
+<section id="section" class="slide level2">
+<h1></h1>
+<h3 id="disponibilizacao">Disponibilização</h3>
+<ul>
+<li>Apresentação disponível em <a href="https://jreduardo.github.io/talks/LCE5870-pedagogical" class="uri">https://jreduardo.github.io/talks/LCE5870-pedagogical</a></li>
+</ul>
+<p><br></p>
+<h3 id="inspiracoes">Inspirações</h3>
+<ul>
+<li><p>E-book: <strong>Gamificação no Ensino: entenda, use e engaje seus alunos</strong>, material elaborado pela empresa AppAprova; <a href="http://materiais.appprova.com.br/gamificacao-no-ensino">link</a></p></li>
+<li><p>TEDTALK: <strong>Gaming can make a better world</strong>, por Jane McGonigal (2010) <a href="https://www.youtube.com/watch?v=lEnr8PJwn3M">link</a>;</p></li>
+</ul>
+</section>
+<section id="conteudo" class="slide level2">
+<h1>Conteúdo</h1>
+<ol type="1">
+<li><p>O que é gamificação?</p></li>
+<li><p>Por que gamificar o ensino?</p></li>
+<li><p>Equívocos sobre gamificação</p></li>
+<li><p>Estudos de casos</p></li>
+<li><p>Conclusão</p></li>
+</ol>
+<!--------------------------------------------- -->
+<!-- Section1 -->
+<!--------------------------------------------- -->
+</section>
+<section id="section-1" class="slide level2" data-background="#383D3D" data-transition="zoom">
+<h1></h1>
+<div class="mysection" style="font-size: 60px; font-weight: bold;&gt;
+O que é gamificação?
+&lt;/div&gt;
+
+## Conceito ##
+
+&lt;br&gt;
+
+&gt; Gamificar é criar dinâmicas, usar recursos de games ou jogos que
+&gt; engajem pessoas para atingir um determinado objetivo.
+
+## Exemplos conhecidos em negócios ##
+
+- Inclusão de brinquedos em produtos alimentícios (_fast foods_);
+
+- Programa de milhagem em companhias aéreas;
+
+- Programas de fidelização dos clientes.
+
+## Linha do tempo ##
+
+- **Anos 2000**: Popularização dos jogos e debates mais intensos sobre
+  jogos eletrônicos;
+
+- **Ano 2002**: Criação da _Serious Games Initiative_ para encorajar o
+  desenvolvimento jogos como soluções de questões de gestão e política
+  empresarial;
+
+- **Anos 2002-2010**: Diversas propostas de uso de jogos nas áreas da
+  saúde, treinamentos militares e corporativos, e aplicações no ensino;
+
+- **Ano 2010**: Criação do termo _Gamification_ por Jesse Schell,
+  designer de jogos, em uma conferência da D.I.C.E.
+
+## Elementos para gamificação ##
+
+Como prôpor uma plataforma gamificada?
+
+&gt; - Utilizar os elementos presentes nos games;
+&gt; - Conceito PBL - _Points_ (pontos), _Bagdes_ (medalhas/prêmios) e
+&gt;   _Leaderboards_ (ranqueamento).
+
+## Elementos para gamificação ##
+
+&lt;br&gt;
+
+&lt;img src=" images="" elementos-gamificacao.png"="" width="100%">
+<p>O que é gamificação?</p>
+</div>
+</section>
+<section id="conceito" class="slide level2">
+<h1>Conceito</h1>
+<p><br></p>
+<blockquote>
+<p>Gamificar é criar dinâmicas, usar recursos de games ou jogos que engajem pessoas para atingir um determinado objetivo.</p>
+</blockquote>
+</section>
+<section id="exemplos-conhecidos-em-negocios" class="slide level2">
+<h1>Exemplos conhecidos em negócios</h1>
+<ul>
+<li><p>Inclusão de brinquedos em produtos alimentícios (<em>fast foods</em>);</p></li>
+<li><p>Programa de milhagem em companhias aéreas;</p></li>
+<li><p>Programas de fidelização dos clientes.</p></li>
+</ul>
+</section>
+<section id="linha-do-tempo" class="slide level2">
+<h1>Linha do tempo</h1>
+<ul>
+<li><p><strong>Anos 2000</strong>: Popularização dos jogos e debates mais intensos sobre jogos eletrônicos;</p></li>
+<li><p><strong>Ano 2002</strong>: Criação da <em>Serious Games Initiative</em> para encorajar o desenvolvimento jogos como soluções de questões de gestão e política empresarial;</p></li>
+<li><p><strong>Anos 2002-2010</strong>: Diversas propostas de uso de jogos nas áreas da saúde, treinamentos militares e corporativos, e aplicações no ensino;</p></li>
+<li><p><strong>Ano 2010</strong>: Criação do termo <em>Gamification</em> por Jesse Schell, designer de jogos, em uma conferência da D.I.C.E.</p></li>
+</ul>
+</section>
+<section id="elementos-para-gamificacao" class="slide level2">
+<h1>Elementos para gamificação</h1>
+<p>Como prôpor uma plataforma gamificada?</p>
+<ul>
+<li class="fragment">Utilizar os elementos presentes nos games;</li>
+<li class="fragment">Conceito PBL - <em>Points</em> (pontos), <em>Bagdes</em> (medalhas/prêmios) e <em>Leaderboards</em> (ranqueamento).</li>
+</ul>
+</section>
+<section id="elementos-para-gamificacao-1" class="slide level2">
+<h1>Elementos para gamificação</h1>
+<p><br></p>
+<p><img src="images/elementos-gamificacao.png" width="100%"></img></p>
+<!--------------------------------------------- -->
+<!-- Section 2 -->
+<!--------------------------------------------- -->
+</section>
+<section id="section-2" class="slide level2" data-background="#383D3D" data-transition="zoom">
+<h1></h1>
+<div class="mysection" style="font-size: 60px; font-weight: bold;&gt;
+Por que gamificar o ensino?
+&lt;/div&gt;
+
+## Levamentamento da Spil Games ##
+
+&lt;img src=" images="" dados-spilgames.png"="" width="90%">
+<p>Por que gamificar o ensino?</p>
+</div>
+</section>
+<section id="levamentamento-da-spil-games" class="slide level2">
+<h1>Levamentamento da Spil Games</h1>
+<p><img src="images/dados-spilgames.png" width="90%"></img></p>
+</section>
+<section id="dep.-de-educacao-do-mit" class="slide level2">
+<h1>Dep. de Educação do MIT</h1>
+<p><br></p>
+<blockquote>
+<p>“Jogadores normalmente apresentam persistência, ousadia, atenção aos detalhes, criatividade na solução de problemas - todas as habilidades que, idealmente, devem ser demostradas na escola”<br> - <strong>The Education Arcade no MIT</strong></p>
+</blockquote>
+</section>
+<section id="section-3" class="slide level2">
+<h1></h1>
+<p><img src="images/gaming.jpg" width="100%"></img></p>
+</section>
+<section id="por-que-jogos-sao-viciantes" class="slide level2">
+<h1>Por que jogos são viciantes?</h1>
+<ul>
+<li class="fragment">Você é o protagonista da história;</li>
+<li class="fragment">Você sabe que seu papel é fundamental para atingir um objetivo;</li>
+<li class="fragment">Você terá quantas chances forem necessárias;</li>
+<li class="fragment">Você tentará quantas vezes foram necesssárias, pois tem esperanças de atingir o objetivo;</li>
+<li class="fragment">Você no jogo é a melhor versão de você mesmo.</li>
+</ul>
+<blockquote>
+<p>– Jane McGonigal, 2010.</p>
+</blockquote>
+</section>
+<section id="beneficios" class="slide level2">
+<h1>Benefícios</h1>
+<p><img src="images/vantagens.png" height="100%"></img></p>
+</section>
+<section id="beneficios-1" class="slide level2" data-transition="none">
+<h1>Benefícios</h1>
+<div id="col-right">
+<p><img src="images/vantagens-1.png" width="100%"></img></p>
+</div>
+<div id="col-left">
+<p>Há</p>
+<ul>
+<li><p>Diferentes cenários;</p></li>
+<li><p>Diferentes personagens;</p></li>
+<li><p>Diferentes acontecimentos.</p></li>
+</ul>
+<p>Os alunos precisam refletir para tomar uma decisão.</p>
+</div>
+</section>
+<section id="beneficios-2" class="slide level2" data-transition="none">
+<h1>Benefícios</h1>
+<div id="col-right">
+<p><img src="images/vantagens-2.png" width="100%"></img></p>
+</div>
+<div id="col-left">
+<p>Há</p>
+<ul>
+<li><p>Missões e desafios;</p></li>
+<li><p>Pontuações (rankings);</p></li>
+<li><p>Premiações</p></li>
+</ul>
+<p>que dão um propósito lúdico ao aluno.</p>
+</div>
+</section>
+<section id="beneficios-3" class="slide level2" data-transition="none">
+<h1>Benefícios</h1>
+<div id="col-right">
+<p><img src="images/vantagens-3.png" width="100%"></img></p>
+</div>
+<div id="col-left">
+<p>Para</p>
+<ul>
+<li><p>Completar missões;</p></li>
+<li><p>Contornar acontecimentos;</p></li>
+<li><p>Alcançar objetivos</p></li>
+</ul>
+<p>deve-se combinar recursos e habilidades com colegas.</p>
+</div>
+</section>
+<section id="beneficios-4" class="slide level2" data-transition="none">
+<h1>Benefícios</h1>
+<div id="col-right">
+<p><img src="images/vantagens-4.png" width="100%"></img></p>
+</div>
+<div id="col-left">
+<p>O uso da tecnologia</p>
+<ul>
+<li><p>Celular;</p></li>
+<li><p>Computadores;</p></li>
+<li><p>Tablets</p></li>
+</ul>
+<p>é familiar à nova geração.</p>
+</div>
+</section>
+<section id="beneficios-5" class="slide level2" data-transition="none">
+<h1>Benefícios</h1>
+<div id="col-right">
+<p><img src="images/vantagens-5.png" width="100%"></img></p>
+</div>
+<div id="col-left">
+<p>Contornar as situações-problemas propostas exige</p>
+<ul>
+<li><p>A concentração e reflexão;</p></li>
+<li><p>Organização dos recursos e informações;</p></li>
+<li><p>O uso da criatividade;</p></li>
+<li><p>entre outros.</p></li>
+</ul>
+</div>
+<!--------------------------------------------- -->
+<!-- Section 3 -->
+<!--------------------------------------------- -->
+</section>
+<section id="section-4" class="slide level2" data-background="#383D3D" data-transition="zoom">
+<h1></h1>
+<div class="mysection" style="font-size: 60px; font-weight: bold;&gt;
+Equívocos sobre a Gamificação na Educação
+&lt;/div&gt;
+
+##  ##
+
+
+&gt; - Gamificação não é só PBL (pontos, prêmios e rankings);
+&gt; - Os elementos adotados pelo educador devem envolver/desenvolver o
+&gt;   interesse da turma;
+&gt; - Gamificação $\neq$ Jogos educativos
+
+&lt;!--------------------------------------------- --&gt;
+&lt;!-- Section 4 --&gt;
+&lt;!--------------------------------------------- --&gt;
+
+## ## {data-background=#383D3D data-transition=" zoom"}="" <div="" style="font-size: 60px; font-weight: bold;&gt;
+Estudos de caso
+&lt;/div&gt;
+
+
+## _MathLand_ ##
+
+Transformando o ensino de matemática básica.
+
+&gt; - Criado por Kate Fanelli em uma escola de Michigan-EUA;
+&gt; - Desenvolvido para (pré-) adolescentes entre 11 e 18 anos;
+&gt; - Todo o curso de matemática foi dividido em 20 níveis (fases);
+&gt; - O objetivo de cada nível é desvendar um mistério;
+&gt; - Caso o aluno não consiga desvendar o mistério, pode-se tentar outras
+&gt;   vezes;
+&gt; - Cada aluno têm seu avatar, e customizações nesse avatar são
+&gt;   liberadas conforme são " vencidos"="" os="" níveis.="" ##="" duolingo="" ##="" plataforma="" para="" prendizado="" de="" idiomas="" de="" forma="" divertida.\="" [duolingo](https:="" www.duolingo.com="" )="">
+<p>Equívocos sobre a Gamificação na Educação</p>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h1></h1>
+<ul>
+<li class="fragment">Gamificação não é só PBL (pontos, prêmios e rankings);</li>
+<li class="fragment">Os elementos adotados pelo educador devem envolver/desenvolver o interesse da turma;</li>
+<li class="fragment">Gamificação <span class="math inline">\(\neq\)</span> Jogos educativos</li>
+</ul>
+<!--------------------------------------------- -->
+<!-- Section 4 -->
+<!--------------------------------------------- -->
+</section>
+<section id="section-6" class="slide level2" data-background="#383D3D" data-transition="zoom">
+<h1></h1>
+<div class="mysection" style="font-size: 60px; font-weight: bold;&gt;
+Estudos de caso
+&lt;/div&gt;
+
+
+## _MathLand_ ##
+
+Transformando o ensino de matemática básica.
+
+&gt; - Criado por Kate Fanelli em uma escola de Michigan-EUA;
+&gt; - Desenvolvido para (pré-) adolescentes entre 11 e 18 anos;
+&gt; - Todo o curso de matemática foi dividido em 20 níveis (fases);
+&gt; - O objetivo de cada nível é desvendar um mistério;
+&gt; - Caso o aluno não consiga desvendar o mistério, pode-se tentar outras
+&gt;   vezes;
+&gt; - Cada aluno têm seu avatar, e customizações nesse avatar são
+&gt;   liberadas conforme são " vencidos"="" os="" níveis.="" ##="" duolingo="" ##="" plataforma="" para="" prendizado="" de="" idiomas="" de="" forma="" divertida.\="" [duolingo](https:="" www.duolingo.com="" )="">
+<p>Estudos de caso</p>
+</div>
+</section>
+<section id="mathland" class="slide level2">
+<h1><em>MathLand</em></h1>
+<p>Transformando o ensino de matemática básica.</p>
+<ul>
+<li class="fragment">Criado por Kate Fanelli em uma escola de Michigan-EUA;</li>
+<li class="fragment">Desenvolvido para (pré-) adolescentes entre 11 e 18 anos;</li>
+<li class="fragment">Todo o curso de matemática foi dividido em 20 níveis (fases);</li>
+<li class="fragment">O objetivo de cada nível é desvendar um mistério;</li>
+<li class="fragment">Caso o aluno não consiga desvendar o mistério, pode-se tentar outras vezes;</li>
+<li class="fragment">Cada aluno têm seu avatar, e customizações nesse avatar são liberadas conforme são “vencidos” os níveis.</li>
+</ul>
+</section>
+<section id="duolingo" class="slide level2">
+<h1>Duolingo</h1>
+<p>Plataforma para prendizado de idiomas de forma divertida.<br />
+<a href="https://www.duolingo.com/">Duolingo</a></p>
+<ul>
+<li class="fragment">Criado por Luis von Ahn e Severin Hacker;</li>
+<li class="fragment">Ganhou os prêmios de aplicativo do ano pela Apple e Google em 2013;</li>
+<li class="fragment">Divido o aprendizado de em unidades;</li>
+<li class="fragment">Há metas impostas pelo aluno a serem cumpridas;</li>
+<li class="fragment">Há recompensas quando as metas são cumpridas.</li>
+</ul>
+<!--------------------------------------------- -->
+<!-- Section 5 -->
+<!--------------------------------------------- -->
+</section>
+<section id="section-7" class="slide level2" data-background="#383D3D" data-transition="zoom">
+<h1></h1>
+<div class="mysection" style="font-size: 60px; font-weight: bold;&gt;
+Conclusões
+&lt;/div&gt;
+
+## ##
+
+&lt;br&gt;
+
+&gt; - A forma de aprendizagem dos alunos expostos à tecnologia desde
+    crianças não é a mesma que supõe a forma de ensino-aprendizagem
+    empregada na maioria das escolas;
+&gt; - Há certa dificuldade para elaboração de uma plataforma para educação
+    gamificada; 
+&gt; - A aplicação correta da gamificação no ensino:
+      - Diminui a indisciplina;
+      - Aumenta o comprometimento com a aprendizagem;
+      - Incentiva o trabalho colaborativo;
+      - Mantém os alunos motivados.
+
+&lt;!--------------------------------------------- --&gt;
+&lt;!-- Dúvidas --&gt;
+&lt;!--------------------------------------------- --&gt;
+
+## ## {data-background=#383D3D data-transition=" zoom"}="" <div="" style="font-size: 60px; font-weight: bold;&gt;
+Dúvidas?
+&lt;/div&gt;
+
+#  #
+
+&lt;br&gt;
+
+Sugestões de dúvidas:
+
+- O sistema de ensino atual já não é gamificado?
+- Qual a viabilidade da gamificação no ensino superior?
+- Qual a viabilidade da gamificação em massa no ensino público? Quanto é
+  necessário investir?
+
+
+">
+<p>Conclusões</p>
+</div>
+</section>
+<section id="section-8" class="slide level2">
+<h1></h1>
+<p><br></p>
+<ul>
+<li class="fragment">A forma de aprendizagem dos alunos expostos à tecnologia desde crianças não é a mesma que supõe a forma de ensino-aprendizagem empregada na maioria das escolas;</li>
+<li class="fragment">Há certa dificuldade para elaboração de uma plataforma para educação gamificada;</li>
+<li class="fragment">A aplicação correta da gamificação no ensino:</li>
+<li class="fragment">Diminui a indisciplina;</li>
+<li class="fragment">Aumenta o comprometimento com a aprendizagem;</li>
+<li class="fragment">Incentiva o trabalho colaborativo;</li>
+<li class="fragment">Mantém os alunos motivados.</li>
+</ul>
+<!--------------------------------------------- -->
+<!-- Dúvidas -->
+<!--------------------------------------------- -->
+</section>
+<section id="section-9" class="slide level2" data-background="#383D3D" data-transition="zoom">
+<h1></h1>
+<div class="mysection" style="font-size: 60px; font-weight: bold;&gt;
+Dúvidas?
+&lt;/div&gt;
+
+#  #
+
+&lt;br&gt;
+
+Sugestões de dúvidas:
+
+- O sistema de ensino atual já não é gamificado?
+- Qual a viabilidade da gamificação no ensino superior?
+- Qual a viabilidade da gamificação em massa no ensino público? Quanto é
+  necessário investir?
+
+
+">
+<p>Dúvidas?</p>
+</div>
+</section>
+<section><section id="section-10" class="titleslide slide level1"><h1></h1></section></section>
+    </div>
+  </div>
+
+  <script src="index_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="index_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+        menu: {
+          numbers: true,
+          custom: false,
+          themes: false,
+          transitions: false
+        },
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'index_files/reveal.js-3.3.0.1/plugin/menu/menu.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>

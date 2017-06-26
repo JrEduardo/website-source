@@ -1,0 +1,68 @@
+/*------------------------------------------- */
+/* General modifications */
+section {
+    text-align: justify;
+}
+
+.reveal h1 {
+    text-align: center;
+}
+
+.reveal h1.title {
+    font-size: 2.5em;
+    text-align: center;
+    margin: 0px;
+}
+.reveal h1.subtitle {
+    font-size: 2.0em;
+    text-align: center;
+    margin: 0px;
+}
+.reveal h2.author {
+    font-style: italic;
+    text-align: center;
+}
+.reveal h3.date {
+    text-align: center;
+}
+
+.mysection {
+    color: #fff;
+    position: absolute;
+    top: 380px;
+}
+
+.reveal section img {
+    display: block;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.12);
+    border: 0px solid #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/*------------------------------------------- */
+/* Header of the slides */
+.reveal .slide-number {
+    position: initial;
+}
+div.slide-number::before {
+    content: "Eduardo Elias Ribeiro Junior";
+    margin-right: 5px;
+}   
+span.slide-number-a::before {
+    content: "- Slide";
+    margin-right: 5px;
+}
+
+/*------------------------------------------- */
+/* Two columns */
+#col-left{
+    width: 45%;
+    float: left;
+    padding-left: 20px;
+}
+
+#col-right{
+    width: 45%;
+    float: left;
+}
